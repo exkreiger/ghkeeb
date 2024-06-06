@@ -5,7 +5,7 @@ enum layer_names {
     _NUM,
     _NAV,
     _FUN,
-}
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             //left row 1
 			KC_1, KC_2, KC_3, KC_4, KC_5,   
                         //right row 1
-                        KC_BSPSC, RSFT(KC_TAB), KC_ENT,KC_TAB, KC_DEL,
+                        KC_BSPC, RSFT(KC_TAB), KC_ENT,KC_TAB, KC_DEL,
 			//left row 2
             KC_6, KC_7, KC_8, KC_9, KC_0,    
                         //right row 2
@@ -61,11 +61,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             //left row 3				
             TO(_FUN), XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,
                         //right row 3				
-                        XXXXXXX, XXXXXXX, XXXXXX,XXXXXXX, XXXXXXX,
+                        XXXXXXX, XXXXXXX,XXXXXXX,XXXXXXX, XXXXXXX,
             //left thumb				
             _______, TO(0),	
                         //right thumb
-                       XXXXXXX XXXXXXX, _______
+                       XXXXXXX,  _______
 							   ),
 
 	[_FUN] = LAYOUT_split_3x5_2(
@@ -154,8 +154,12 @@ DOLLAR_COMBO,
 PERCENT_COMBO,
 //wr=ctrl f
 FIND_COMBO,
-//combo count = 30
+//
+COMBO_LENGTH,
 };
+
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
 //HORIZONTAL
 //qw=grv_esc
 const uint16_t PROGMEM grv_esc_combo[] = {KC_G, KC_W, COMBO_END};
@@ -235,9 +239,9 @@ combo_t key_combos[] = {
 //wf=caps lock
   [CAPS_LOCK_COMBO] = COMBO(caps_lock_combo, KC_CAPS),
 //st=select left (ctrl shift left)
-  [SELECT_LEFT_COMBO] = COMBO(left_select_combo, RCS(KC_LEFT)),
+  [LEFT_SELECT_COMBO] = COMBO(left_select_combo, RCS(KC_LEFT)),
 //tg=select right (ctl sft right)
-  [SELECT_RIGHT_COMBO] = COMBO(right_select_combo, RCS(KC_RIGHT)),
+  [RIGHT_SELECT_COMBO] = COMBO(right_select_combo, RCS(KC_RIGHT)),
 //rt=redo(ctl y)
   [REDO_COMBO] = COMBO(redo_combo, KC_AGAIN),
 //dv=undo(ctl z)
