@@ -104,39 +104,58 @@ MOUSE_3_COMBO,
 //wf=caps lock
 CAPS_LOCK_COMBO,
 //st=select left (ctrl shift left)
+LEFT_SELECT_COMBO,
 //tg=select right (ctl sft right)
+RIGHT_SELECT_COMBO,
 //rt=redo(ctl y)
+REDO_COMBO,
 //dv=undo(ctl z)
+UNDO_COMBO,
 //ar=z(bunk slot bottom left)
+ZED_COMBO,
 //io=delete
+DELETE_COMBO,
 //nei=equal sign
+EQUAL_COMBO,
 //lu=&
+AMPERSAND_COMBO,
 //uy=|
+PIPE_COMBO,
 //kn=!
+BANG_COMBO,
 //mh=@
+AT_COMBO,
 //ne=double quote
+DOUBLE_QUOTE_COMBO,
 //ei=single quote
+SINGLE_QUOTE_COMBO,
 //luy;=scroll up
+SCROLL_UP_COMBO,
 //neio=scroll down
-//wf=caps lock
+SCROLL_DOWN_COMBO,
 //rs=CW_TOGG
-//
+CAPS_WORD_TOGGLE_COMBO,
 //VERTICAL
 //fs=select all(ctl a)
+SELECT_ALL_COMBO,
 //pt=cut
+CUT_COMBO,
 //td=copy
+COPY_COMBO,
 //gv=paste
+PASTE_COMBO,
 //nh=_
+UNDERSCORE_COMBO,
 //ln=# 
+HASHTAG_COMBO,
 //ue=$
+DOLLAR_COMBO,
 //yi=%
+PERCENT_COMBO,
 //wr=ctrl f
-//
-//SPLIT
-//
-  COMBO_LENGTH
+FIND_COMBO,
+//combo count = 30
 };
-uint16_t COMBO_LEN = COMBO_LENGTH;
 //HORIZONTAL
 //qw=grv_esc
 const uint16_t PROGMEM grv_esc_combo[] = {KC_G, KC_W, COMBO_END};
@@ -147,7 +166,7 @@ const uint16_t PROGMEM mouse_2_combo[] = {KC_F, KC_P, COMBO_END};
 //qwfp=mouse center click 3
 const uint16_t PROGMEM mouse_3_combo[] = {KC_Q,KC_W,KC_F, KC_P, COMBO_END};
 //wf=caps lock
-const uint16_t PROGMEM caps_log_combo[] = {KC_W,KC_F, COMBO_END};
+const uint16_t PROGMEM caps_lock_combo[] = {KC_W,KC_F, COMBO_END};
 //st=select left (ctrl shift left)
 const uint16_t PROGMEM left_select_combo[] = {KC_S,KC_T, COMBO_END};
 //tg=select right (ctl sft right)
@@ -202,79 +221,74 @@ const uint16_t PROGMEM find_combo[] = {KC_W,KC_R,COMBO_END};
 //
 //SPLIT
 //
-
-
-
-
+//
 combo_t key_combos[] = {
 //HORIZONTAL
 //qw=grv_esc
+  [GRAVE_ESC_COMBO] = COMBO(grv_esc_combo, QK_GRAVE_ESCAPE),
 //wfp=mouse right 1
+  [MOUSE_1_COMBO] = COMBO(mouse_1_combo, KC_BTN1),
 //fp=mouse left click 2
+  [MOUSE_2_COMBO] = COMBO(mouse_2_combo, KC_BTN2),
 //qwfp=mouse center click 3
+  [MOUSE_3_COMBO] = COMBO(mouse_3_combo, KC_BTN3),
 //wf=caps lock
+  [CAPS_LOCK_COMBO] = COMBO(caps_lock_combo, KC_CAPS),
 //st=select left (ctrl shift left)
+  [SELECT_LEFT_COMBO] = COMBO(left_select_combo, RCS(KC_LEFT)),
 //tg=select right (ctl sft right)
+  [SELECT_RIGHT_COMBO] = COMBO(right_select_combo, RCS(KC_RIGHT)),
 //rt=redo(ctl y)
+  [REDO_COMBO] = COMBO(redo_combo, KC_AGAIN),
 //dv=undo(ctl z)
+  [UNDO_COMBO] = COMBO(undo_combo, KC_UNDO),
 //ar=z(bunk slot bottom left)
+  [ZED_COMBO] = COMBO(zed_combo, KC_Z),
 //io=delete
+  [DELETE_COMBO] = COMBO(delete_combo, KC_DELETE),
 //nei=equal sign
+  [EQUAL_COMBO] = COMBO(equals_combo, KC_EQUAL),
 //lu=&
+  [AMPERSAND_COMBO] = COMBO(ampersand_combo, KC_AMPR),
 //uy=|
+  [PIPE_COMBO] = COMBO(pipe_combo, KC_PIPE),
 //kn=!
+  [BANG_COMBO] = COMBO(bang_combo, KC_EXLM),
 //mh=@
+  [AT_COMBO] = COMBO(at_combo, KC_AT),
 //ne=double quote
+  [DOUBLE_QUOTE_COMBO] = COMBO(double_quote_combo, KC_DQUO),
 //ei=single quote
+  [SINGLE_QUOTE_COMBO] = COMBO(single_quote_combo, KC_QUOTE),
 //luy;=scroll up
+  [SCROLL_UP_COMBO] = COMBO(ms_scroll_up_combo, KC_WH_U),
 //neio=scroll down
-//wf=caps lock
+  [SCROLL_DOWN_COMBO] = COMBO(ms_scroll_down_combo, KC_WH_D),
 //rs=CW_TOGG
+  [CAPS_WORD_TOGGLE_COMBO] = COMBO(caps_word_toggle_combo, CW_TOGG),
 //
 //VERTICAL
 //fs=select all(ctl a)
+  [SELECT_ALL_COMBO] = COMBO(select_all_combo, LCTL(KC_A)),
 //pt=cut
+  [CUT_COMBO] = COMBO(cut_combo, KC_CUT),
 //td=copy
+  [COPY_COMBO] = COMBO(copy_combo, KC_COPY),
 //gv=paste
+  [PASTE_COMBO] = COMBO(paste_combo, KC_PASTE),
 //nh=_
+  [UNDERSCORE_COMBO] = COMBO(underscore_combo, KC_UNDS),
 //ln=# 
+  [HASHTAG_COMBO] = COMBO(hashtag_combo, KC_HASH),
 //ue=$
+  [DOLLAR_COMBO] = COMBO(dollar_combo, KC_DOLLAR),
 //yi=%
+  [PERCENT_COMBO] = COMBO(percent_combo, KC_PERCENT),
 //wr=ctrl f
+  [FIND_COMBO] = COMBO(find_combo, KC_FIND),
 //
 //SPLIT
 //
-  [CAPS_COMBO_Q] = COMBO_ACTION(caps_combo_q),
-  [ENTER_COMBO_Q] = COMBO(enter_combo_q, KC_ENT),
-  [TAB_COMBO_Q] = COMBO(tab_combo_q, KC_TAB),
-  [BSP_COMBO_Q] = COMBO(bsp_combo_q, KC_BSPC),
-  [DEL_COMBO_Q] = COMBO(del_combo_q, KC_DEL),
-  [CTRLC_COMBO_Q] = COMBO(ctrlc_combo_q, LCTL(KC_C)),
-  [ESC_COMBO_Q] = COMBO(esc_combo_q, KC_ESC),
-  [LCBR_COMBO_Q] = COMBO(lcbr_combo_q, KC_LCBR),
-  [LPRN_COMBO_Q] = COMBO(lprn_combo_q, KC_LPRN),
-  [LBRC_COMBO_Q] = COMBO(lbrc_combo_q, KC_LBRC),
-  [RCBR_COMBO_Q] = COMBO(rcbr_combo_q, KC_RCBR),
-  [RPRN_COMBO_Q] = COMBO(rprn_combo_q, KC_RPRN),
-  [RBRC_COMBO_Q] = COMBO(rbrc_combo_q, KC_RBRC),
-  // alternative braces
-  [LCBR_COMBO_Q2] = COMBO(lcbr_combo_q2, KC_LCBR),
-  [LPRN_COMBO_Q2] = COMBO(lprn_combo_q2, KC_LPRN),
-  [RCBR_COMBO_Q2] = COMBO(rcbr_combo_q2, KC_RCBR),
-  [RPRN_COMBO_Q2] = COMBO(rprn_combo_q2, KC_RPRN),
-  // toggle utility layer
-  [UTIL_COMBO_Q]  = COMBO(util_combo_q, TG(_UTIL)),
-  [UTIL_COMBO_Q2]  = COMBO(util_combo_q2, TG(_UTIL)),
-  [UTIL_COMBO_Q3]  = COMBO(util_combo_q3, TG(_UTIL)),
-  // toggle game layer
-  [UTIL_COMBO_Q]  = COMBO(game_combo_q, TG(_GAME)),
-  [UTIL_COMBO_Q2]  = COMBO(game_combo_q2, TG(_GAME)),
-  // game layer combos
-  [ENTER_COMBO_G] = COMBO(enter_combo_g, KC_ENT),
-
-  // rshift
-  [RSFT_COMBO_Q]  = COMBO_ACTION(rsft_combo_q),
-
 };
 
 
