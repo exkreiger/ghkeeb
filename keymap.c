@@ -46,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_CIRC, KC_UNDS, RGUI_T(KC_DOWN), RALT_T(KC_RIGHT), RCTL_T(KC_BACKSLASH),
 
             //left thumb
-			_______, TO(_CMK),
+			LSFT_T(KC_BACKSPACE), TO(_CMK),
                         //right thumb
-                        XXXXXXX, _______
+                        XXXXXXX, TO(_FUN)
 								),
 
 	[_NAV] = LAYOUT_split_3x5_2(
@@ -61,32 +61,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         //right row 2
                         KC_LEFT, KC_DOWN, KC_UP,KC_RIGHT,XXXXXXX,
             //left row 3
-            TO(_FUN), XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR,
+            _______, KC_LALT, KC_LGUI, KC_LCTL, KC_PSCR,
                         //right row 3
                         LCA(KC_LEFT), LCA(KC_DOWN), LCA(KC_UP),LCA(KC_RIGHT),XXXXXXX,
             //left thumb
-            _______, TO(0),
+            TO(_FUN), TO(_CMK),
                         //right thumb
-                       XXXXXXX,  _______
+                       KC_ENT, KC_RSFT
 							   ),
 
 	[_FUN] = LAYOUT_split_3x5_2(
             //left row 1
             KC_F1, KC_F2, KC_F3, KC_F4, TO(_NAV),
                         //right row 1
-                        TO(_NUM), KC_VOLU, KC_VOLD, KC_MUTE, KC_MPLY,
+                        TO(_NUM), KC_VOLD, KC_VOLU, KC_MPLY, RCTL(KC_R),
             //left row 2
             KC_F5, KC_F6, KC_F7, KC_8, XXXXXXX,
                         //right row 2
-                        KC_MPRV, KC_MNXT, KC_LGUI,KC_LCTL,KC_LALT,
+                        XXXXXXX, KC_MPRV, KC_MNXT, KC_MUTE, XXXXXXX,
             //left row 3
-            KC_F9, KC_F10, KC_F11, KC_F12,XXXXXXX,
+            _______, KC_F9, KC_F10, KC_F11, KC_F12,
                         //right row 3
-                        QK_REBOOT,XXXXXXX,KC_RGUI, KC_RALT, KC_RCTL,
+                        QK_REBOOT,QK_MAKE,KC_RGUI, KC_RALT, KC_RCTL,
             //left thumb
-            KC_LALT, TO(0),
+            KC_LALT, TO(_CMK),
                         //right thum
-                        QK_BOOT, QK_MAKE
+                        QK_BOOT,KC_RSFT
 								),
 
 
@@ -212,9 +212,9 @@ combo_t key_combos[] = {
 //wf=caps lock
   [CAPS_LOCK_COMBO] = COMBO(caps_lock_combo, KC_CAPS),
 //st=select left (ctrl shift left)
-  [LEFT_SELECT_COMBO] = COMBO(left_select_combo, RCS(KC_LEFT)),
+  [LEFT_SELECT_COMBO] = COMBO(left_select_combo, RCTL(KC_LEFT)),
 //tg=select right (ctl sft right)
-  [RIGHT_SELECT_COMBO] = COMBO(right_select_combo, RCS(KC_RIGHT)),
+  [RIGHT_SELECT_COMBO] = COMBO(right_select_combo, RCTL(KC_RIGHT)),
 //rt=redo(ctl y)
   [REDO_COMBO] = COMBO(redo_combo, LCTL(KC_Y)),
 //dv=undo(ctl z)
