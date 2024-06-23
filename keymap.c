@@ -5,6 +5,7 @@ enum layer_names {
     _NUM,
     _NAV,
     _FUN,
+    _GAME
 };
 
 
@@ -76,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         //right row 1
                         TO(_NUM), KC_VOLD, KC_VOLU, KC_MPLY, RCTL(KC_R),
             //left row 2
-            KC_F5, KC_F6, KC_F7, KC_8, XXXXXXX,
+            KC_F5, KC_F6, KC_F7, KC_8, TO(_GAME),
                         //right row 2
                         XXXXXXX, KC_MPRV, KC_MNXT, KC_MUTE, XXXXXXX,
             //left row 3
@@ -87,6 +88,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LALT, TO(_CMK),
                         //right thum
                         QK_BOOT,KC_RSFT
+								),
+	[_GAME] = LAYOUT_split_3x5_2(
+            //left row 1
+            KC_ESCAPE, XXXXXXX, KC_X, KC_Z, KC_Q,
+                        //right row 1
+                         XXXXXXX, XXXXXXX, KC_UP, XXXXXXX, XXXXXXX,
+            //left row 2
+            KC_LCTL, XXXXXXX, KC_S, KC_A,KC_W,
+                        //right row 2
+                        XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_RCTL,
+            //left row 3
+            XXXXXXX, KC_1, KC_2, KC_3, KC_4,
+                        //right row 3
+                        KC_5, KC_6, KC_7, KC_8,KC_9,
+            //left thumb
+            KC_LSFT, TO(_CMK),
+                        //right thum
+                        KC_ENT,KC_RSFT
 								),
 
 
